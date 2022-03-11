@@ -1,56 +1,82 @@
 package org.blogpessoal.model;
 
 public class UsuarioLogin {
+
+	private long id;
+
+	private String nome;
+
+	private String usuario;
+
+	private String senha;
 	
-private long id;
+	private String foto;
+	
+	private String token;
+	
+	
+	
 
-private String nome_completo;
+	public UsuarioLogin(long id, String nome, String usuario, String senha, String foto, String token) {
+		this.id = id;
+		this.nome=nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.foto = foto;
+		this.token = token;
+	}
 
-private String usuario;
+	public UsuarioLogin() {
+		
+	}
 
-private String senha;
+	public long getId() {
+		return id;
+	}
 
-private String token;
+	public void setId(long id) {
+		this.id = id;
+	}
 
-public long getId() {
-	return id;
-}
+	public String getNome() {
+		return nome;
+	}
 
-public void setId(long id) {
-	this.id = id;
-}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-public String getNome_completo() {
-	return nome_completo;
-}
+	public String getUsuario() {
+		return usuario;
+	}
 
-public void setNome_completo(String nome_completo) {
-	this.nome_completo = nome_completo;
-}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
 
-public String getUsuario() {
-	return usuario;
-}
+	public String getSenha() {
+		return senha;
+	}
 
-public void setUsuario(String usuario) {
-	this.usuario = usuario;
-}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
-public String getSenha() {
-	return senha;
-}
+	public String getFoto() {
+		return foto;
+	}
 
-public void setSenha(String senha) {
-	this.senha = senha;
-}
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
 
-public String getToken() {
-	return token;
-}
+	public String getToken() {
+		return token;
+	}
 
-public void setToken(String token) {
-	this.token = token;
-}
-
+	public void setToken(String token) {
+		this.token = token;
+	}
+	
 
 }

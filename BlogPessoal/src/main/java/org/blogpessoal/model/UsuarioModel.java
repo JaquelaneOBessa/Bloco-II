@@ -18,66 +18,94 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "tb_usuario")
 
 public class UsuarioModel {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+
+	@NotBlank
+	@Size(min = 1, max = 255)
+	private String nome;
+
+	@NotBlank
+	@Size(min = 1, max = 350)
+	private String usuario;
+
+	@NotBlank
+	@Size(min = 8, max = 255)
+	private String senha;
+
+	private String foto;
+
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("usuario")
+	private List<PostagemModel> postagem;
+
+	public UsuarioModel(long id, String nome, String usuario,String senha, String foto) {
+		this.id = id;
+		this.nome=nome;
+		this.usuario=usuario;
+		this.senha = senha;
+		this.foto = foto;
+	}
+
 	
-@Id
-@GeneratedValue (strategy = GenerationType.IDENTITY)
-private long id;
+	
+	
+	public UsuarioModel() {
+	
+	}
 
-@NotBlank
-@Size(min = 1, max = 255)
-private String nome_completo;
 
-@NotBlank
-@Size(min = 1, max = 350)
-private String usuario;
 
-@NotBlank
-@Size(min = 8, max = 255)
-private String senha;
 
-@OneToMany (mappedBy = "usuario", cascade = CascadeType.REMOVE)
-@JsonIgnoreProperties("usuario")
-private List<PostagemModel> postagem;
+	public long getId() {
+		return id;
+	}
 
-public long getId() {
-	return id;
-}
+	public void setId(long id) {
+		this.id = id;
+	}
 
-public void setId(long id) {
-	this.id = id;
-}
+	public String getNome() {
+		return nome;
+	}
 
-public String getNome_completo() {
-	return nome_completo;
-}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-public void setNome_completo(String nome_completo) {
-	this.nome_completo = nome_completo;
-}
+	public String getUsuario() {
+		return usuario;
+	}
 
-public String getUsuario() {
-	return usuario;
-}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
 
-public void setUsuario(String usuario) {
-	this.usuario = usuario;
-}
+	public String getSenha() {
+		return senha;
+	}
 
-public String getSenha() {
-	return senha;
-}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
-public void setSenha(String senha) {
-	this.senha = senha;
-}
+	public String getFoto() {
+		return foto;
+	}
 
-public List<PostagemModel> getPostagem() {
-	return postagem;
-}
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
 
-public void setPostagem(List<PostagemModel> postagem) {
-	this.postagem = postagem;
-}
+	public List<PostagemModel> getPostagem() {
+		return postagem;
+	}
+
+	public void setPostagem(List<PostagemModel> postagem) {
+		this.postagem = postagem;
+	}
 
 
 }
